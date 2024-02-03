@@ -1,54 +1,99 @@
 "use strict";
-const gg = {
-    height: 20,
-    weight: 50,
-    scholar: true,
-    func: (n, m) => {
-        console.log(n * m);
+// interface Obj {
+//   height: number;
+//   weight: number;
+//   gender?: boolean;
+// }
+// FUNCTION WITH OBJECT
+const getData = (product) => {
+    console.log(product);
+};
+const productOne = {
+    name: "Apple",
+    price: 99999,
+    stock: 145,
+    photo: "Sample url",
+    id: "sklswjdjd",
+};
+getData(productOne);
+const errorHandler = () => {
+    throw new Error();
+};
+const mode = "dark";
+// *************************************************************
+// CLASSES IN TYPESCRIPT
+class Player {
+    constructor(height, weight, power) {
+        this.height = height;
+        this.weight = weight;
+        this.power = power;
+        this.id = String(Math.floor(Math.random() * 1000));
     }
-};
-const gg2 = {
-    height: 20,
-    weight: 50,
-    scholar: true,
-    func: (n, m) => {
-        console.log(n * m);
+    get getMyHeight() {
+        return this.height;
     }
-};
-gg2.func(20, 40);
-const obj = {
-    height: 40,
-    weight: 80,
-    gender: true,
-};
-const obj2 = {
-    height: 60,
-    weight: 100,
-    gender: false,
-};
-const obj3 = {
-    height: 60,
-    weight: 100,
-};
-console.log(obj);
-console.log(obj2);
-console.log(obj3);
-console.log(gg);
-console.log(gg2);
-FUNCTIONS;
-const func = (n, m, l) => {
-    if (typeof l === "undefined") {
-        console.log(n * m);
-        return n * m;
+    set changeMyHeight(height) {
+        this.height = height;
     }
-    console.log(n * m * l);
-    return n * m * l;
+}
+const abhi = new Player(100, 150, 23);
+console.log("Height", abhi.getMyHeight);
+abhi.changeMyHeight = 50;
+console.log("Changed Height", abhi.getMyHeight);
+class Player2 extends Player {
+    constructor(height, weight, power, special) {
+        super(height, weight, power);
+        this.special = special;
+    }
+}
+const abhi = new Player2(100, 150, 23, true);
+console.log("Weight", abhi.weight);
+console.log("Heght", abhi.getMyHeight());
+console.log("ID", abhi.id);
+;
+class Product {
+    constructor(name, price, stock, offer, id) {
+        this.id = String(Math.floor(Math.random() * 1000));
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+        this.id = id;
+        this.offer = offer;
+    }
+}
+;
+const pizza = new Product("I Phone", 49999, 120, true, "jjsjsj");
+console.log("ID", pizza.id);
+console.log("Name", pizza.name);
+console.log("Price", pizza.price);
+console.log("Stock", pizza.stock);
+// **************************************************************
+// TYPE ASSERTION
+const btn = document.getElementById("btn");
+const img = document.getElementById("img");
+const form = document.getElementById("form");
+const input = document.querySelector("form > input");
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const value = Number(input.value);
+    const h2 = document.createElement("h2");
+    h2.textContent = (value + 20).toString();
+    const body = document.querySelector("body");
+    body.append(h2);
 };
-func(10, 12);
-REST;
-OPERATOR;
-const func = (...m) => {
-    console.log(m);
-    return m;
+const myObj = {
+    name: "Ritik",
+    email: "ritik@gmail.com",
 };
-func(10, 12, 3548, 36393);
+let key = "name";
+myObj[key];
+const getName = () => {
+    return myObj["name"];
+};
+const getEmail = () => {
+    return myObj["email"];
+};
+const getData = (key) => {
+    return myObj[key];
+};
+getData("name");
